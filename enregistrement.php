@@ -3,8 +3,9 @@ function SaveMessage($author, $content)
 {
     $ini = parse_ini_file('./dbconfig.ini', true);
     $pdo = new PDO('mysql:host=localhost;dbname=projetr4a10', $ini['DB']['user'], $ini['DB']['password']);
-    $statement = $pdo->prepare('INSERT INTO messages(auteur, contenu) VALUES(:a, :c)');
+    $statement = $pdo->prepare('INSERT INTO messages(auteur, contenu) VALUES(:h, :a, :c)');
     $statement->execute([
+        ':h' => date('d/m/Y H:i:s'),
         ':a' => $author,
         ':c' => $content
     ]);
