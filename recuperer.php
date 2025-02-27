@@ -17,7 +17,7 @@ function GetMessage($time = null)
         ]);
     }
 
-    return $statement->fetchAll()
+    return $statement->fetchAll();
 }
 
 
