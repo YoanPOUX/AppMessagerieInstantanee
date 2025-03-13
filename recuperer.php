@@ -1,30 +1,20 @@
 <?php
-function GetMessage($time = null)
-{
-    $ini = parse_ini_file('./dbconfig.ini', true);
-    $pdo = new PDO('mysql:host=localhost;dbname=projetr4a10', $ini['DB']['user'], $ini['DB']['password'], [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, // Active le mode exception
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-    ]);
 
-    if ($time === null) {
-        $statement = $pdo->prepare('SELECT * FROM messages ORDER BY horaire DESC, Id DESC LIMIT 10;');
-        $statement->execute();
-    } else {
-        $statement = $pdo->prepare('SELECT * FROM messages WHERE horaire > :h ORDER BY horaire DESC, Id DESC LIMIT 10;');
-        $statement->execute([
-            ':h' => date('Y-m-d H:i:s', strtotime($time))
-        ]);
+include 'connexion.php';
+
+$sql = "SELECT Id, horaire, auteur, contenu FROM messages ORDER BY horaire DESC LIMIT 10";
+$result = $conn->query($sql);
+
+$messages = [];
+
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        $messages[] = $row;
     }
-
-    return $statement->fetchAll();
 }
 
+$conn->close();
 
-if(empty($_POST['time']))
-{
-    header('location:./index.php');
-    return;
-}
-GetMessage($_POST['time']);
+header('Content-Type: application/json');
+echo json_encode($messages);
 ?>

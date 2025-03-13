@@ -1,22 +1,21 @@
 <?php
-function SaveMessage($author, $content)
-{
-    $ini = parse_ini_file('./dbconfig.ini', true);
-    $pdo = new PDO('mysql:host=localhost;dbname=projetr4a10', $ini['DB']['user'], $ini['DB']['password']);
-    $statement = $pdo->prepare('INSERT INTO messages(auteur, contenu) VALUES(:h, :a, :c)');
-    $statement->execute([
-        ':h' => date('Y-m-d H:i:s'),
-        ':a' => $author,
-        ':c' => $content
-    ]);
-    
-    return $pdo->lastInsertId(); // Retourne l'ID du message inséré
+include 'connexion.php';
+
+$auteur = $_POST['auteur'];
+$contenu = $_POST['contenu'];
+$timestamp = time();
+
+$sql = "INSERT INTO messages (horaire, auteur, contenu) VALUES (?, ?, ?)";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param($time, $auteur, $contenu);
+
+if ($stmt->execute()) {
+    echo "Message enregistré avec succès";
+} else {
+    echo "Erreur: " . $sql . "<br>" . $conn->error;
 }
 
-if(empty($_POST['author']) || empty($_POST['content']))
-{
-    header('location:./index.php');
-    return;
-}
-SaveMessage($_POST['author'], $_POST['content']);
+// Fermer la connexion
+$stmt->close();
+$conn->close();
 ?>
