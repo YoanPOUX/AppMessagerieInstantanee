@@ -36,11 +36,11 @@
             // Mettre à jour les messages toutes les 2 secondes
             setInterval(function() {
                 $.get('recuperer.php', function(data) {
-                    var messages = JSON.parse(data);
+                    var messages = data;
                     var messagesHtml = '';
 
                     messages.forEach(function(message) {
-                        messagesHtml += '<div><strong>' + message.auteur + ':</strong> ' + message.contenu + ' <small>(' + message.timestamp + ')</small></div>';
+                        messagesHtml += '<div><strong>' + message["auteur"] + ':</strong> ' + message["contenu"] + ' <small>(' + message["horaire"] + ')</small></div>';
                     });
 
                     $('#messages').html(messagesHtml);

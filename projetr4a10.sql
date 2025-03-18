@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `messages` (
   `Id` int(11) NOT NULL,
-  `horaire` date NOT NULL,
+  `horaire` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `auteur` varchar(20) NOT NULL,
   `contenu` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
