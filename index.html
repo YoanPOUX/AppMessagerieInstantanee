@@ -40,10 +40,12 @@
                     var messagesHtml = '';
 
                     messages.forEach(function(message) {
-                        messagesHtml += '<div><strong>' + message["auteur"] + ':</strong> ' + message["contenu"] + ' <small>(' + message["horaire"] + ')</small></div>';
+                        console.log(document.querySelector("#messages > div#id"));
+                        if(document.querySelector("#messages > div#id") === null)
+                            messagesHtml += '<div id="' + messages["Id"] + '"><strong>' + message["auteur"] + ':</strong> ' + message["contenu"] + ' <small>(' + message["horaire"] + ')</small></div>';
                     });
 
-                    $('#messages').html(messagesHtml);
+                    $('#messages').html($('#messages').html() + messagesHtml);
                 });
             }, 2000);
 
