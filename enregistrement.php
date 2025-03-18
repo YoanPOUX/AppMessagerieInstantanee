@@ -1,21 +1,19 @@
 <?php
-include 'connexion.php';
+include_once 'connexion.php';
+
+$pdo = getPDO();
 
 $auteur = $_POST['auteur'];
 $contenu = $_POST['contenu'];
 $timestamp = time();
 
-$sql = "INSERT INTO messages (horaire, auteur, contenu) VALUES (?, ?, ?)";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param($time, $auteur, $contenu);
-
-if ($stmt->execute()) {
-    echo "Message enregistré avec succès";
-} else {
-    echo "Erreur: " . $sql . "<br>" . $conn->error;
-}
-
+$pdo->beginTransaction();
+$sql = "INSERT INTO messages (horaire, auteur, contenu) VALUES (:t, :a, :c)";
+$stmt = $pdo->prepare($sql);
+$stmt->execute([
+    't' => $timestamp,
+    'a' => $auteur,
+    'c' => $contenu]);
+$pdo->commit();
 // Fermer la connexion
-$stmt->close();
-$conn->close();
 ?>
