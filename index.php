@@ -1,5 +1,7 @@
 <?php
 session_start();
+if(empty($_SESSION['username']) || empty($_SESSION['id']))
+    header('Location: compte.php');
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -18,7 +20,7 @@ session_start();
         <input type="text" id="messageInput" placeholder="Saisissez votre message"><br>
         <button id="sendButton">Envoyer</button>
     </div>
-    
+    <a href="connexioncompte.php">Se déconnecter</a>
 
     <script>
         $(document).ready(function() {
