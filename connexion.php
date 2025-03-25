@@ -4,8 +4,8 @@
 function getPDO() : PDO
 {
     $servername = "localhost";
-    $username = "root";
-    $password = "";
+    $username = "iutadmin";
+    $password = '$iutinfo';
     $dbname = "projetr4a10";
 
     return new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
