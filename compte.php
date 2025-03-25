@@ -8,12 +8,15 @@ session_start();
     <title>Connexion au compte utilisateur</title>
 </head>
 <body>
-    <form method="post" action="connexioncompte.php">
+    <h1>Connexion à un compte utilisateur</h1>
+    <form class="logform" method="post" action="connexioncompte.php">
+        <h2>Créer un compte</h2>
         <input type="text" name="username" placeholder="Nom d'utilisateur">
         <input type="password" name="password" placeholder="Mot de passe">
         <input type="submit" name="action" value="Se connecter">
     </form>
-    <form method="post" action="connexioncompte.php">
+    <form class="logform" method="post" action="connexioncompte.php">
+        <h2>Se connecter à un compte existant</h2>
         <input type="text" name="username" placeholder="Nom d'utilisateur">
         <input type="password" name="password" placeholder="Mot de passe">
         <input type="submit" name="action" value="Créer un compte">

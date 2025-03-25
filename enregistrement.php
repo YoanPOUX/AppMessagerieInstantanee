@@ -1,5 +1,6 @@
 <?php
 include_once 'connexion.php';
+// Simple enregistrement de message dans la base de données
 
 $pdo = getPDO();
 
