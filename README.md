@@ -72,5 +72,5 @@ Dans votre terminal MySQL, exécutez le script SQL "projetr4a10.sql" pour créer
 | Developer                                                | Developer                                |
 | -------------------------------------------------------- | ---------------------------------------- |
 | ALLART Matheo                                         | POUX--BORIES Yoan                        |
-| matheo.allarte@etu.iut-tlse3.fr                        | yoan.poux-bories@etu.iut-tlse3.fr        |
+| matheo.allart@etu.iut-tlse3.fr                        | yoan.poux-bories@etu.iut-tlse3.fr        |
 | [@Mallart](https://github.com/Mallart) | [@YoanPOUX](https://github.com/YoanPOUX) |
