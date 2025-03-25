@@ -58,3 +58,29 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+
+
+-- Ajouter les 20 premiers messages dans la bd
+INSERT INTO `messages` (`auteur`, `contenu`) VALUES
+('Alice', 'Bonjour tout le monde !'),
+('Bob', 'Salut Alice, comment ça va ?'),
+('Charlie', 'Quelqu’un a regardé le dernier épisode de la série X ?'),
+('Alice', 'Oui, c’était incroyable !'),
+('David', 'Je n’ai pas encore regardé, pas de spoilers svp !'),
+('Eve', 'Quelqu’un veut jouer en ligne ce soir ?'),
+('Frank', 'Je suis partant pour une partie de jeu !'),
+('Alice', 'Moi aussi, à quelle heure ?'),
+('Bob', 'Vers 21h ça vous va ?'),
+('Charlie', 'Parfait pour moi.'),
+('David', 'Je suis occupé ce soir, une autre fois !'),
+('Eve', 'D’accord, on organisera une autre session bientôt.'),
+('Frank', 'Qui veut tester une nouvelle application de messagerie ?'),
+('Alice', 'Ça dépend, c’est quoi les fonctionnalités ?'),
+('Bob', 'Sécurité, rapidité et interface fluide.'),
+('Charlie', 'Intéressant, je vais essayer.'),
+('David', 'J’espère que ça supporte le chiffrement de bout en bout.'),
+('Eve', 'Oui, la confidentialité est importante.'),
+('Frank', 'Exactement, c’est l’objectif principal.'),
+('Alice', 'Ok, envoyez-moi le lien pour télécharger.');
