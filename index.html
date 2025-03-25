@@ -46,7 +46,7 @@
                             messagesHtml += '<div id="' + messages["Id"] + '"><strong>' + message["auteur"] + ':</strong> ' + message["contenu"] + ' <small>(' + message["horaire"] + ')</small></div>';
                     });
 
-                    $('#messages').html($('#messages').html() + messagesHtml);
+                    $('#messages').html(messagesHtml);
                 });
             }, 2000);
 
