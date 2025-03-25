@@ -1,4 +1,5 @@
 L'accès à la base est sécurisé via un compte autre que root, et un mot de passe est requis pour ce compte
+Ne pas pouvoir nevoyer de msg si pas de pseudo
 Le code source est suffisament commenté et correctement indenté
 IHM
 Readme.md
