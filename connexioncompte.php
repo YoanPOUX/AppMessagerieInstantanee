@@ -4,6 +4,7 @@ session_start();
 
 /*
  * Error 1 : invalid credentials
+ * Error 2 : logging out
  * */
 
 function isActionCreate() : bool
@@ -12,8 +13,16 @@ function isActionCreate() : bool
         isset($_POST['action']) && $_POST['action'] === "Créer un compte";
 }
 
+function isActionLogin() : bool
+{
+    return
+        isset($_POST['action']) && $_POST['action'] === "Se connecter";
+}
+
 function backHome(int $err) : void
 {
+    if($err == 2)
+        header("Location: compte.php");
     if($err != 0)
         header("Location: index.php?err=$err");
     else
@@ -43,24 +52,30 @@ function login($uname, $pwd) : void
     }
 }
 
-$username = $_POST['username'];
-$pass = $_POST['password'];
 
-if(
-    isActionCreate() &&
-    isset($_POST['action'], $_POST['username'], $_POST['password'])
-)
+if(isset($_POST['action'], $_POST['username'], $_POST['password']))
 {
-    // Créer un nouveau compte en base de données
-    $password = password_hash($pass, PASSWORD_BCRYPT);
-    $sql = "INSERT INTO utilisateurs (username, password) VALUES (:u, :p)";
-    $pdo = getPDO();
-    $statement = $pdo->prepare($sql);
-    $statement->execute([
-        ":u" => $username,
-        ":p" => $password
-    ]);
-    login($username, $pass);
+    $username = $_POST['username'];
+    $pass = $_POST['password'];
+    if(isActionCreate())
+    {
+        // Créer un nouveau compte en base de données
+        $password = password_hash($pass, PASSWORD_BCRYPT);
+        $sql = "INSERT INTO utilisateurs (username, password) VALUES (:u, :p)";
+        $pdo = getPDO();
+        $statement = $pdo->prepare($sql);
+        $statement->execute([
+            ":u" => $username,
+            ":p" => $password
+        ]);
+        login($username, $pass);
+    }
+    elseif(isActionLogin())
+        login($username, $pass);
 }
 else
-    login($username, $pass);
+{
+    unset($_SESSION['username']);
+    unset($_SESSION['id']);
+    backHome(2);
+}

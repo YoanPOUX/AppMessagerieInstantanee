@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 
 CREATE USER IF NOT EXISTS 'iutadmin'@'localhost' IDENTIFIED BY '$iutinfo';
 
-REVOKE ALL PRIVILEGES ON `projetr4a10`.*
-    FROM 'iutadmin'@'%';
 GRANT
     SELECT,
     INSERT,
