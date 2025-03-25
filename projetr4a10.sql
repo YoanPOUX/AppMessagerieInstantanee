@@ -17,6 +17,28 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
+REVOKE ALL PRIVILEGES ON `projetr4a10`.*
+    FROM 'iutadmin'@'%';
+GRANT
+    SELECT,
+    INSERT,
+    UPDATE,
+    DELETE,
+    CREATE,
+    DROP,
+    REFERENCES,
+    INDEX,
+    ALTER,
+    CREATE TEMPORARY TABLES,
+    LOCK TABLES,
+    CREATE VIEW,
+    EVENT,
+    TRIGGER,
+    SHOW VIEW,
+    EXECUTE ON `projetr4a10`.*
+TO 'iutadmin'@'%';
+ALTER USER 'iutadmin'@'%' ;
+
 --
 -- Database: `projetr4a10`
 --
