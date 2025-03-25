@@ -2,7 +2,7 @@
 
 include_once 'connexion.php';
 
-$sql = "SELECT Id, horaire, auteur, contenu FROM messages ORDER BY horaire DESC LIMIT 10";
+$sql = "SELECT Id, horaire, auteur, contenu FROM messages ORDER BY horaire LIMIT 10";
 $pdo = getPDO();
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
