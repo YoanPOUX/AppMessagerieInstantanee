@@ -12,10 +12,6 @@ session_start();
 </head>
 <body>
     <h1>Chat en temps réel</h1>
-    <div>
-        <label for="pseudoInput">Pseudo</label><br>
-        <input type="text" id="pseudoInput" placeholder="Votre pseudo"><br>
-    </div>
     <div id="messages"></div>
     <div>
         <label for="messageInput">Message</label><br>
@@ -28,11 +24,10 @@ session_start();
         $(document).ready(function() {
             // Envoyer un message lors du clic sur le bouton "Envoyer"
             $('#sendButton').click(function() {
-                var pseudo = $('#pseudoInput').val();
                 var message = $('#messageInput').val();
 
                 if (message.trim() !== "") {
-                    $.post('enregistrement.php', { auteur: pseudo, contenu: message }, function(data) {
+                    $.post('enregistrement.php', { auteur: '<?php echo $_SESSION['username'] ?>', contenu: message }, function(data) {
                         $('#messageInput').val(''); // Vider la zone de saisie
                         console.log(data); // Afficher la réponse du serveur
                     });

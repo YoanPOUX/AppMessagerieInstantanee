@@ -46,7 +46,10 @@ function login($uname, $pwd) : void
 $username = $_POST['username'];
 $pass = $_POST['password'];
 
-if(isActionCreate())
+if(
+    isActionCreate() &&
+    isset($_POST['action'], $_POST['username'], $_POST['password'])
+)
 {
     // Créer un nouveau compte en base de données
     $password = password_hash($pass, PASSWORD_BCRYPT);
