@@ -20,7 +20,7 @@ if(empty($_SESSION['username']) || empty($_SESSION['id']))
         <input type="text" id="messageInput" placeholder="Saisissez votre message"><br>
         <button id="sendButton">Envoyer</button>
     </div>
-    <a href="connexioncompte.php">Se déconnecter</a>
+    <a href="db/connexioncompte.php">Se déconnecter</a>
 
     <script>
         $(document).ready(function() {
@@ -29,7 +29,7 @@ if(empty($_SESSION['username']) || empty($_SESSION['id']))
                 var message = $('#messageInput').val();
 
                 if (message.trim() !== "") {
-                    $.post('enregistrement.php', { auteur: '<?php echo $_SESSION['username'] ?>', contenu: message }, function(data) {
+                    $.post('./db/enregistrement.php', { auteur: '<?php echo $_SESSION['username'] ?>', contenu: message }, function(data) {
                         $('#messageInput').val(''); // Vider la zone de saisie
                         console.log(data); // Afficher la réponse du serveur
                     });
@@ -38,7 +38,7 @@ if(empty($_SESSION['username']) || empty($_SESSION['id']))
 
             // Mettre à jour les messages toutes les 2 secondes
             setInterval(function() {
-                $.get('recuperer.php', function(data) {
+                $.get('./db/recuperer.php', function(data) {
                     var messages = data;
                     var messagesHtml = '';
 

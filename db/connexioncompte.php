@@ -23,11 +23,11 @@ function isActionLogin() : bool
 function backHome(int $err) : void
 {
     if($err == 2)
-        header("Location: compte.php");
+        header("Location: ../compte.php");
     if($err != 0)
-        header("Location: compte.php?err=$err");
+        header("Location: ../compte.php?err=$err");
     else
-        header("Location: index.php");
+        header("Location: ../index.php");
 }
 
 // gère la connexion à un compte existant
