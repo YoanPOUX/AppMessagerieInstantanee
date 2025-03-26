@@ -1,12 +1,102 @@
-body {
+body > main {
+    box-sizing: content-box;
     font-family: Arial, sans-serif;
+    width: calc(1080px / 2);
+    height: calc(1920px / 3 - 100px);
+    margin-left: calc(1080px / 2 - 40px);
+    border-radius: 25px;
+    border: solid #454545 20px;
+    border-bottom-width: 50px;
+    border-top-width: 50px;
+}
+
+body > main::before {
+    content: "";
+    display: block;
+    text-align: center;
+    width: 25px;
+    height: 25px;
+    background-image: radial-gradient(
+        ellipse at right top, #ffffff 0%, #aaaaaa 100%
+    );
+    position: absolute;
+    top: 25px;
+    left:calc(50vw);
+    border-radius: 25px;
+}
+
+body > main::after {
+    content: "";
+    display: block;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    background-color: #353535;
+    position: absolute;
+    bottom: 75px;
+    left:calc(50vw);
+    border-radius: 25px;
+
+}
+
+.button
+{
+
+}
+
+body > main > section
+{
+    margin-left: 10%;
+    margin-right: 10%;
+
 }
 
 #messages {
     border: 1px solid #ccc;
+    border-radius: 15px;
     padding: 10px;
     height: 300px;
     overflow-y: scroll;
+    width: 80%;
+}
+
+#bottombar
+{
+    display: inline-flex;
+    flex-direction: row;
+    width: 88%;
+}
+section
+{
+    display: grid;
+    grid-template-rows: auto 1fr 1fr;
+}
+
+section > a
+{
+    color: #de2545;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+    border: #de2545 solid 1px;
+    background-color: #dfdfdf;
+    padding: 5px;
+    margin-top: 10px;
+    margin-right: 15%;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform ease 0.1s;
+}
+
+section > a:hover
+{
+    transform: scale(1.1);
+}
+
+#bottombar>input
+{
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
 }
 
 #messageInput,

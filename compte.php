@@ -9,6 +9,8 @@ session_start();
     <link rel="icon" type="image/svg" href="assets/messages-square.svg">
 </head>
 <body>
+<main>
+
     <h1>Connexion à un compte utilisateur</h1>
     <form class="logform" method="post" action="db/connexioncompte.php">
         <h2>Se connecter à un compte existant</h2>
@@ -22,5 +24,6 @@ session_start();
         <input type="password" name="password" placeholder="Mot de passe">
         <input type="submit" name="action" value="Créer un compte">
     </form>
+</main>
 </body>
 </html>

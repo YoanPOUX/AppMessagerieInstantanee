@@ -13,14 +13,19 @@ if(empty($_SESSION['username']) || empty($_SESSION['id']))
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <h1>Chat en temps réel</h1>
+<main>
+
+    <h1 style="margin-left: 10%">Chat en temps réel</h1>
+    <section>
+
     <div id="messages"></div>
-    <div>
-        <label for="messageInput">Message</label><br>
+    <div id="bottombar">
         <input type="text" id="messageInput" placeholder="Saisissez votre message"><br>
         <button id="sendButton">Envoyer</button>
     </div>
     <a href="db/connexioncompte.php">Se déconnecter</a>
+    </section>
+</main>
 
     <script>
         $(document).ready(function() {
@@ -45,7 +50,7 @@ if(empty($_SESSION['username']) || empty($_SESSION['id']))
                     messages.forEach(function(message) {
                         console.log(document.querySelector("#messages > div#id"));
                         if(document.querySelector("#messages > div#id") === null)
-                            messagesHtml += '<div id="' + messages["Id"] + '"><strong>' + message["auteur"] + ':</strong> ' + message["contenu"] + ' <small>(' + message["horaire"] + ')</small></div>';
+                            messagesHtml += '<div class="message"><strong>' + message["auteur"] + ':</strong> ' + message["contenu"] + ' <small class="message-hour">(' + message["horaire"] + ')</small></div>';
                     });
 
                     $('#messages').html(messagesHtml);
