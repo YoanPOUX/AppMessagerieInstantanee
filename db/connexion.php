@@ -3,10 +3,11 @@
 
 function getPDO() : PDO
 {
-    $servername = "localhost";
-    $username = "iutadmin";
-    $password = '$iutinfo';
-    $dbname = "projetr4a10";
+    $ini = parse_ini_file('db.ini', true);
+    $servername = $ini['database']['host'];
+    $username = $ini['database']['username'];
+    $password = $ini['database']['psw'];
+    $dbname = $ini['database']['dbname'];
 
     return new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 }

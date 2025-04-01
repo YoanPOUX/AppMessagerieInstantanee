@@ -11,7 +11,13 @@ session_start();
 </head>
 <body>
 <main>
+    <?php
+    if($_GET["err"] == 1)
+        echo '<h1>Erreur: identifiants non reconnus</h1>';
+    elseif($_GET["err"] == 2)
+        echo '<h1>Déconnexion effectuée</h1>';
 
+    ?>
     <h1>Connexion à un compte utilisateur</h1>
     <form class="logform" method="post" action="db/connexioncompte.php">
         <h2>Se connecter à un compte existant</h2>
