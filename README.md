@@ -1,4 +1,5 @@
 # Projet de Messagerie Instantanée
+Url accessible [ici](http://matheo.great-site.net/instmsg).
 
 ## Description
 
@@ -16,32 +17,9 @@ Ce projet consiste à développer une application de messagerie instantanée uti
 
 ---
 
-## Prérequis
+## Lien vers le site
+[Messagerie Instantanée]()
 
-- Serveur Apache avec PHP installé.
-- Serveur de base de données MySQL.
-- JQuery et Ajax pour la gestion dynamique des messages.
-
----
-
-## Installation
-
-### Étape 1 : Créer la base de données
-
-Dans votre terminal MySQL, exécutez le script SQL "projetr4a10.sql" pour créer la base de données et la table des messages et des users.
-
-### Étape 2 : Configuration du serveur PHP et MySQL
-
-1. Déployez le projet sur un serveur local ou distant avec **Apache** et **PHP**.
-2. Assurez-vous que **PHP** a les extensions nécessaires pour se connecter à **MySQL** (par exemple, `mysqli`).
-3. Mettez à jour les paramètres de connexion dans les fichiers PHP (`enregistrer.php` et `recuperer.php`) pour vous connecter à votre base de données MySQL.
-
-### Étape 3 : Lancer l'application
-
-1. Placez le dossier du projet dans le répertoire de votre serveur Apache (par exemple, `htdocs` si vous utilisez XAMPP).
-2. Ouvrez `index.html` dans votre navigateur.
-
----
 
 ## Utilisation
 
