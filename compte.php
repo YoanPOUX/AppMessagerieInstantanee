@@ -12,10 +12,11 @@ session_start();
 <body>
 <main>
     <?php
-    if($_GET["err"] == 1)
-        echo '<h1>Erreur: identifiants non reconnus</h1>';
-    elseif($_GET["err"] == 2)
-        echo '<h1>Déconnexion effectuée</h1>';
+    if(isset($_GET['err']))
+        if($_GET["err"] == 1)
+            echo '<h1>Erreur: identifiants non reconnus</h1>';
+        elseif($_GET["err"] == 2)
+            echo '<h1>Déconnexion effectuée</h1>';
 
     ?>
     <h1>Connexion à un compte utilisateur</h1>
