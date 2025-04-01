@@ -7,6 +7,7 @@ session_start();
 <head>
     <title>Connexion au compte utilisateur</title>
     <link rel="icon" type="image/svg" href="assets/messages-square.svg">
+    <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 <main>
